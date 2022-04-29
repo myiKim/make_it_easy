@@ -1,7 +1,7 @@
 import os
 import time
 
-def algorithm(intlist):
+def algorithm_ONsq(intlist):
 
 	t1 = time.time()
 
@@ -26,6 +26,47 @@ def algorithm(intlist):
 	elapsed = t2 - t1
 
 	return intlist, elapsed
+
+def algorithm_effcient(intlist):
+
+	t1 = time.time()
+
+
+	#######################CORE###########################
+	N = len(intlist) #length of list
+
+	#devided into two groups: S(searched) / U (Unserached)
+	for i in range(1,N,1):
+		this = intlist[i] #temporarily store the first elem. of U (will be inserted)
+		j = i # the index that will cover the searched space(S) starting from j-1, which is the last elem. of S  
+		move = True if intlist[j-1] > this else False
+		
+		#idea: move only when needed(current pointer element less than previous one) so that it reduces runtimes
+		while (move and  j>0): 
+			#while loop iterates until it finds the point this value will be inserted
+			intlist[j] = intlist[j-1] #prev one move behind 
+			j -=1 #decreasing index
+			
+		intlist[j] = this #represent the "insertion"; the i th elem. of list now gets inserted into the place we want.
+
+	######################################################
+
+
+	t2 = time.time()
+
+	elapsed = t2 - t1
+
+	return intlist, elapsed
+
+
+
+
+
+def algorithm(intlist):
+
+	#return algorithm_ONsq(intlist)
+	return algorithm_effcient(intlist)
+
 
 def test():
 
@@ -56,5 +97,4 @@ def test():
 
 if __name__ == "__main__":
 
-	test_result, elapsed_time = test()
-	print("Test Finished! (Elapsed time recorded as ): ", elapsed_time)
+	test()
