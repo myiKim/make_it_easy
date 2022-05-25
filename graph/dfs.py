@@ -1,7 +1,7 @@
 import os
 import time
 
-def dfs_traverese(graph, start_node=1):
+def dfs_traverse(graph, start_node=1):
 
 	t1 = time.time()
 
@@ -22,23 +22,14 @@ def dfs_traverese(graph, start_node=1):
 			print("neigh: ", neighbor)
 			stack.append(neighbor)
 
-
 	######################################################
 
-
 	t2 = time.time()
-
 	elapsed = t2 - t1
 
 	return visited, elapsed
 
-
-
-
-
-
 def algorithm(graph, start_node=1):
-
 
 	return dfs_traverese(graph, start_node)
 
@@ -65,7 +56,7 @@ def test():
 	print("Test 1 finished: (result/expected): " , result1, " / " )
 	
 	print("Test 2 begins: ")
-	
+
 	graph = {
 		1 :[2,3,4][::-1], #reverse it b/c I want to visit smallest numbered neighbor first?
 		2 :[1,5,6][::-1],
@@ -73,12 +64,10 @@ def test():
 		4 :[1,5][::-1],
 		5 :[2,3,4,6][::-1],
 		6 :[2,5][::-1] 
-	}
-	
+	}	
 
 	result2, elapsed_time = algorithm(graph, 2)
-	elapsed_times.append(elapsed_time)
-	
+	elapsed_times.append(elapsed_time)	
 
 	print("Test 2 finished: (result/expected): " , result2, " / ")
 	
