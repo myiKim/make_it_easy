@@ -1,0 +1,8 @@
+7
+110 1985 187 82 3 Cristiano Ronaldo
+120 1987 169 72 3 Lionel Messi
+130 1985 172 66 2 Luka Modric
+140 1998 178 75 3 Kylian Mbappe
+150 2000 195 88 3 Erling Haland 
+160 1992 180 78 1 David Alaba
+170 1992 200 96 3 Thibaut Courtois
